@@ -1,6 +1,12 @@
 if(screen.width>992){ //depends on the screen it displays another structure of the images
     document.getElementById("carouselExampleIndicators").style.display = "none";
     document.getElementById("seq").style.display = "block";
+    document.getElementById("fixed-to-top").style.position = "fixed";
+    document.getElementById("fixed-to-top").style.top = "2%";
+    document.getElementById("fixed-to-top").style.right = "0";
+    document.getElementById("fixed-to-top").style.zIndex = "1";
+
+
 }else{
     document.getElementById("carouselExampleIndicators").style.display = "block";
     document.getElementById("seq").style.display = "none";
@@ -100,4 +106,7 @@ const Shop = () => { //it alerts a message if the product has been added to cart
 };
 
 document.getElementById("cart").addEventListener("click",Shop);
+
+document.getElementById("fixed").scrollTop = 0 ;
+
 
