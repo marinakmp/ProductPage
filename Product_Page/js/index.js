@@ -1,3 +1,5 @@
+// TODO use CSS for styling
+// check this article https://css-tricks.com/scroll-fix-content/
 if(screen.width>992){ //depends on the screen it displays another structure of the images
     document.getElementById("carouselExampleIndicators").style.display = "none";
     document.getElementById("seq").style.display = "block";
@@ -5,8 +7,6 @@ if(screen.width>992){ //depends on the screen it displays another structure of t
     document.getElementById("fixed-to-top").style.top = "2%";
     document.getElementById("fixed-to-top").style.right = "0";
     document.getElementById("fixed-to-top").style.zIndex = "1";
-
-
 }else{
     document.getElementById("carouselExampleIndicators").style.display = "block";
     document.getElementById("seq").style.display = "none";
@@ -34,6 +34,7 @@ const decrease = () => { //it decreases the amount of products by 1
 document.getElementById("min").addEventListener("click",decrease);
 document.getElementById("add").addEventListener("click",increase);
 
+// TODO Please check Bootstap components
 const ProductDescription = () => { // it makes visible/hidden the paragraph of the description
     let x = document.getElementById("p-desc");
     if (x.style.display === "none") {
@@ -79,6 +80,8 @@ const ProductShipping = () => { // it makes visible/hidden the paragraph of ship
 
 document.getElementById("shipping").addEventListener("click", ProductShipping);
 
+// TODO Please check Bootstap components for alerts too
+// Forms: event and method submit https://javascript.info/forms-submit
 document.getElementById("heart").style.color = "rgb(0, 123, 255)";
 const Wish = () => { // changes color to the heart and alerts a message (add/remove from wishlist)
     let x = document.getElementById("heart");
