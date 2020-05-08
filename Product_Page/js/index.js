@@ -1,5 +1,6 @@
-let adder = document.getElementById("text").value;
-const increase = () => {    //it increases the amount of products by 1
+// it increases the amount of products by 1
+const increase = () => {
+    let adder = document.getElementById("text").value;
     if(adder<0){
         adder=0;
     }
@@ -7,34 +8,37 @@ const increase = () => {    //it increases the amount of products by 1
     document.getElementById("text").value = adder;
 };
 
-const decrease = () => { //it decreases the amount of products by 1
+//it decreases the amount of products by 1
+const decrease = () => {
+    let adder = document.getElementById("text").value;
     adder--;
-    let x = document.getElementById("text").value;
     if(adder < 0){
-        x = 0;
+        adder = 0;
     }else {
-        x = adder;
+        document.getElementById("text").value = adder;
     }
 };
 
 document.getElementById("min").addEventListener("click",decrease);
 document.getElementById("add").addEventListener("click",increase);
 
-document.getElementById("heart").value = "ADD TO WISHLIST";
-const Wish = () => { // changes color to the heart and alerts a message (add/remove from wishlist)
-    let x = document.getElementById("heart");
-    let y = document.getElementById("wishlist");
-    console.log(x.value);
-    if(x.value === "ADD TO WISHLIST"){
-        x.value = "REMOVE FROM WISHLIST";
-        y.innerText = "REMOVE FROM WISHLIST";
-    }else{
-        x.value = "ADD TO WISHLIST";
-        y.innerText = "ADD TO WISHLIST";
+// Wishlist
+const wishlist_btn = document.getElementById("wishlistBtn");
+const wishlist_label = wishlist_btn.querySelector("#wishlistLabel");
+
+// changes color to the heart and alerts a message (add/remove from wishlist)
+// TODO Differentiate text labels and values for logic
+const Wish = () => {
+    if (wishlist_btn.value === "ADD TO WISHLIST"){ // e.g. add
+        wishlist_btn.value = "REMOVE FROM WISHLIST"; // e.g. remove
+        wishlist_label.innerText = "REMOVE FROM WISHLIST";
+    } else {
+        wishlist_btn.value = "ADD TO WISHLIST";
+        wishlist_label.innerText = "ADD TO WISHLIST";
     }
 };
 
-document.getElementById("heart").addEventListener("click", Wish);
+wishlist_btn.addEventListener("click", Wish);
 
 const Shop = () => { //it alerts a message if the product has been added to cart but only if it has a right size
     let x = document.getElementById("size");
@@ -48,5 +52,3 @@ const Shop = () => { //it alerts a message if the product has been added to cart
 
 
 document.getElementById("cart").addEventListener("click",Shop);
-
-
