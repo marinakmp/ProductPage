@@ -40,7 +40,7 @@ const Wish = () => {
 
 wishlist_btn.addEventListener("click", Wish);
 
-const Shop = () => { //it alerts a message if the product has been added to cart but only if it has a right size
+const Shop = (event) => { //it alerts a message if the product has been added to cart but only if it has a right size
     let x = document.getElementById("size");
     if(x.value === "0"){
         document.getElementById("add-size").classList.remove("d-none");
@@ -48,7 +48,7 @@ const Shop = () => { //it alerts a message if the product has been added to cart
         document.getElementById("cart").innerHTML= "Add to Cart <i class=\"fa fa-exclamation-circle\"></i>";
         document.getElementById("added-to-cart").classList.remove("d-none");
     }
+    event.preventDefault();
 };
-
 
 document.getElementById("cart").addEventListener("click",Shop);
