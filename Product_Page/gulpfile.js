@@ -1,6 +1,8 @@
 // gulpfile.js
 var gulp = require("gulp");
 var sass = require("gulp-sass");
+var cssmin = require('gulp-cssmin');
+var rename = require('gulp-rename');
 
 var paths = {
     styles: {
