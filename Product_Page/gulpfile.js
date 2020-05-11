@@ -1,17 +1,22 @@
 // gulpfile.js
-var gulp = require("gulp");
-var sass = require("gulp-sass");
-var cssmin = require('gulp-cssmin');
-var rename = require('gulp-rename');
+var gulp = require("gulp"),
+    sass = require("gulp-sass"),
+    postcss = require("gulp-postcss"),
+    autoprefixer = require("autoprefixer"),
+    cssnano = require("cssnano"),
+    sourcemaps = require("gulp-sourcemaps");
+    cssmin = require('gulp-cssmin');
+    rename = require('gulp-rename');
+    browserSync = require("browser-sync").create();
 
 var paths = {
     styles: {
         src: "styles/**/*.scss",
-        dest: "styles"
+        dest: "./styles"
     }
 };
 
-var browserSync = require("browser-sync").create();
+
  
 function style() {
     return (
@@ -41,16 +46,8 @@ function watch() {
         }
     });
     gulp.watch(paths.styles.src, style);
-    gulp.watch("path/to/html/*.html", reload);
+    gulp.watch("./*.html").on('change',reload);
+    gulp.watch("js/**/*.js").on('change',reload);
 }
 
-exports.watch = watch
-
-
-
-var gulp = require("gulp"),
-    sass = require("gulp-sass"),
-    postcss = require("gulp-postcss"),
-    autoprefixer = require("autoprefixer"),
-    cssnano = require("cssnano"),
-    sourcemaps = require("gulp-sourcemaps");
+exports.watch = watch;
