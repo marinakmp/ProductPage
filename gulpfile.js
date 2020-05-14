@@ -1,53 +1,54 @@
 // gulpfile.js
-var gulp = require("gulp"),
+const { src, dest, watch, series } = require('gulp');
+
+const gulp = require("gulp"),
     sass = require("gulp-sass"),
-    postcss = require("gulp-postcss"),
     autoprefixer = require("autoprefixer"),
-    cssnano = require("cssnano"),
-    sourcemaps = require("gulp-sourcemaps");
-    cssmin = require('gulp-cssmin');
-    rename = require('gulp-rename');
+    sourcemaps = require("gulp-sourcemaps"),
+    cssmin = require('gulp-cssmin'),
+    rename = require('gulp-rename'),
     browserSync = require("browser-sync").create();
 
-var paths = {
-    styles: {
-        src: "styles/**/*.scss",
-        dest: "./styles"
-    }
+const path = {
+    src: "assets/",
+    dist: "./dist/assets/"
 };
 
-
- 
-function style() {
-    return (
-        gulp
-            .src(paths.styles.src)
-            .pipe(sourcemaps.init())
-            .pipe(sass())
-            .on("error", sass.logError)
-            .pipe(postcss([autoprefixer(), cssnano()]))
-            .pipe(sourcemaps.write())
-            .pipe(gulp.dest(paths.styles.dest))
-            // Add browsersync stream pipe after compilation
-            .pipe(browserSync.stream())
-    );
+// Compile sass to css
+function styles() {
+    return src(path.src + 'styles/**/*.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass().on("error", sass.logError))
+        .pipe(sourcemaps.write())
+        .pipe(dest(path.dist))
+        // Add browsersync stream pipe after compilation
+        .pipe(browserSync.stream());
 }
 
-exports.style = style;
+// CSS export: compact
+function cssbuild() {
+    return src(path.dist + '*.css')
+        .pipe(autoprefixer())
+        .pipe(cssmin({keepBreaks: false}))
+        .pipe(rename({suffix: '.min'}))
+        .pipe(dest(path.dist));
+}
+
 
 function reload() {
     browserSync.reload();
 }
- 
-function watch() {
+
+function watchtask() {
     browserSync.init({
         server: {
             baseDir: "./"
         }
     });
-    gulp.watch(paths.styles.src, style);
-    gulp.watch("./*.html").on('change',reload);
-    gulp.watch("js/**/*.js").on('change',reload);
+    watch(path.src + 'styles/**/*.scss', styles);
+    watch("./*.html").on('change',reload);
 }
 
-exports.watch = watch;
+exports.default = series(styles, watchtask);
+exports.styles = styles;
+exports.cssbuild = cssbuild;

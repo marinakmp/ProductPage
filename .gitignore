@@ -1,2 +1,5 @@
-## Jet Beans products
-./.idea/
+## JetBrains products
+.idea/
+
+# NPM
+node_modules/
