@@ -31,4 +31,3 @@ ProductPage (root)
 * Add package.json
 * dist directory exports
 * Replace Font awesome with inline svg icons
-

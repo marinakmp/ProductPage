@@ -1,3 +1,8 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "variables";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
 @media (min-width: 992px) {
     .fixed-to-top {
         position: fixed;
@@ -27,13 +32,13 @@
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
+    //-webkit-appearance: none;
     margin: 0;
 }
 
-input[type=number] {
-    -moz-appearance: textfield;
-}
+//input[type=number] {
+//    -moz-appearance: textfield;
+//}
 
 .modal {
     background: rgba(000, 000, 000, 0.8);
