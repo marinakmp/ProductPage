@@ -1,2 +1,4 @@
-## JetBrains products
+# JetBrains products
 .idea/
+# NPM
+node_modules/
