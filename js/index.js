@@ -1,7 +1,6 @@
-// TODO https://codepen.io/joaomosantos/pen/LxZzPZ check the use of data-attributes
-
 // it increases the amount of products by 1
 const increase = () => {
+    let adder = document.getElementById("text").value;
     if(adder<0){
         adder=0;
     }
@@ -11,12 +10,12 @@ const increase = () => {
 
 //it decreases the amount of products by 1
 const decrease = () => {
+    let adder = document.getElementById("text").value;
     adder--;
-    let x = document.getElementById("text").value;
     if(adder < 0){
-        x = 0;
+        adder = 0;
     }else {
-        x = adder;
+        document.getElementById("text").value = adder;
     }
 };
 
@@ -41,7 +40,7 @@ const Wish = () => {
 
 wishlist_btn.addEventListener("click", Wish);
 
-const Shop = () => { //it alerts a message if the product has been added to cart but only if it has a right size
+const Shop = (event) => { //it alerts a message if the product has been added to cart but only if it has a right size
     let x = document.getElementById("size");
     if(x.value === "0"){
         document.getElementById("add-size").classList.remove("d-none");
@@ -49,7 +48,7 @@ const Shop = () => { //it alerts a message if the product has been added to cart
         document.getElementById("cart").innerHTML= "Add to Cart <i class=\"fa fa-exclamation-circle\"></i>";
         document.getElementById("added-to-cart").classList.remove("d-none");
     }
+    event.preventDefault();
 };
-
 
 document.getElementById("cart").addEventListener("click",Shop);
