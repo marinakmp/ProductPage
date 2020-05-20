@@ -1,3 +1,10 @@
+<!-- TODO -->
+<!-- 1. Move modal at the end of the page -->
+<!-- 2. Create alerts on the fly via JS -->
+<!-- 3. FontAwesome with svg background images, check _icons.scss & _variables.scss -->
+<!-- 4. Check comments in code, search for "DEFINE" -->
+<!-- 5. Read https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template, can we apply content templates in out app? -->
+
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
@@ -53,9 +60,10 @@
                                 <img src="assets/img/p3.jpg" class="mb-2 w-75" alt="...">
                                 <img src="assets/img/p4.jpg" class="mb-2 w-75" alt="...">
                             </div>
+
                         </div>
                         <div class="col-sm-12 col-lg-6 fixed-to-top" id="product-details">
-                            SKU: 010101010</br>
+                            SKU: 010101010<br/>
                             Availability: Available
                             <h1>Black Shirt</h1>
                             <div class="h2">10.00€</div>
@@ -70,7 +78,7 @@
                                     <option value="extra_large">extra large</option>
                                 </select>
 
-                                <a href="#size-guide" target="_blank" class="text-decoration-none" data-toggle="modal">View Size Guide</a>
+                                <a href="#size-guide" target="_blank" class="text-decoration-none" data-toggle="modal" role="DEFINE">View Size Guide</a>
                                 <div class="modal fade" id="size-guide" tabindex="-1" role="dialog" aria-labelledby="sizeGuideLabel" aria-hidden="true" data-backdrop="false">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -145,6 +153,7 @@
                                 <div class="d-flex align-items-center quantity-controls">
                                     <button class="btn btn-outline-secondary" id="min" type="button" data-dicrease>-</button>
                                     <label for="text"></label>
+                                    <!-- Should form be submitted with an empty quantity value? -->
                                     <input type="number" class="form-control text-center w-50" id="text" value="1" data-value>
                                     <button class="btn btn-outline-secondary" id="add" type="button" data-increase>+</button>
                                 </div>
@@ -157,7 +166,10 @@
                                 </button>
                             </div>
 
-                            <button type="button" class="btn btn-link text-decoration-none" id="wishlistBtn"><i class="fa fa-heart"></i> <span id="wishlistLabel">ADD TO WISHLIST</span></button>
+<!-- Delete this            <button type="button" class="btn btn-link text-decoration-none" id="wishlistBtn"><i class="fa fa-heart"></i><span id="wishlistLabel">ADD TO WISHLIST</span></button>-->
+<!-- Refactor wishlist                           -->
+                            <button type="button" class="text-decoration-none btn btn-link svg-icon icon-heart btn-wishlist" id="wishlistBtn" data-DEFINE>ADD TO WISHLIST</button>
+
                             <a class="btn btn-link text-decoration-none" href="#"><i class="fa fa-share"></i> SHARE</a>
 
                             <div class="accordion" id="accordionExample">

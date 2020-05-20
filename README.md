@@ -25,9 +25,11 @@ ProductPage (root)
 +-- package-lock.json
 +-- README.md
  ```
+### Resources
+MaterialUI Icons: https://material.io/resources/icons/?icon=favorite_border&style=baseline
+Favicons: https://realfavicongenerator.net/
+
 ### TODO
 * Resolve TODO comments
-* Directory structure
-* Add package.json
 * dist directory exports
-* Replace Font awesome with inline svg icons
+* Replace FontAwesome with svg icons

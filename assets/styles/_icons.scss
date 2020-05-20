@@ -1,0 +1,16 @@
+.svg-icon {
+  background: transparent no-repeat left 0.25em center/1.25em;
+}
+.icon-heart {
+  background-image: escape-svg($icon-heart-line);
+}
+
+// Button styles
+.btn.svg-icon {
+  padding-left: 1.75em;
+}
+
+// Wishlist button icon
+.btn-wishlist[data-wishlist="true"] {
+  //background-image: TODO
+}
