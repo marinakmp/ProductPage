@@ -1,0 +1,26 @@
+@import "variables";
+.svg-icon {
+  background: transparent no-repeat left 0.25em center/1.25em;
+}
+.icon-heart {
+  background: escape-svg($icon-heart-line) no-repeat left;
+  padding-left: 4%;
+}
+
+
+// Button styles
+.btn.svg-icon {
+  padding-left: 1.75em;
+}
+
+// Wishlist button icon
+.btn-wishlist[data-wishlist="true"] {
+  background: escape-svg($icon-heart-fill) no-repeat left;
+  padding-left: 4%;
+}
+
+//share button icon
+.icon-share {
+  background: escape-svg($icon-share) no-repeat left;
+  padding-left: 4%;
+}

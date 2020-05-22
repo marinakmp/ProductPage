@@ -1,0 +1,8 @@
+.accordion .card-header:after {
+  content: "-";
+  float: right;
+}
+.accordion .card-header.collapsed:after {
+  /* symbol for "collapsed" panels */
+  content: "+";
+}

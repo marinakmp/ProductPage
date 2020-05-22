@@ -1,17 +1,16 @@
 // gulpfile.js
 const { src, dest, watch, series } = require('gulp');
 
-const gulp = require("gulp"),
-    sass = require("gulp-sass"),
-    autoprefixer = require("autoprefixer"),
-    sourcemaps = require("gulp-sourcemaps"),
-    cssmin = require('gulp-cssmin'),
-    rename = require('gulp-rename'),
-    browserSync = require("browser-sync").create();
+const sass = require("gulp-sass");
+const autoprefixer = require('gulp-autoprefixer');
+const sourcemaps = require("gulp-sourcemaps");
+const cssmin = require('gulp-cssmin');
+const rename = require('gulp-rename');
+const browserSync = require("browser-sync").create();
 
 const path = {
     src: "assets/",
-    dist: "./dist/assets/"
+    dist: "dist/assets/"
 };
 
 // Compile sass to css
