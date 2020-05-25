@@ -1,9 +1,18 @@
+@import "variables"; // TODO
 .svg-icon {
   background: transparent no-repeat left 0.25em center/1.25em;
 }
 .icon-heart {
-  background-image: escape-svg($icon-heart-line);
+  //background-image: escape-svg($icon-heart-line); TODO
+  background: escape-svg($icon-heart-line) no-repeat left;
+  padding-left: 4%; // This padding vs padding in btn ccs class
 }
+//share button icon
+.icon-share {
+  background: escape-svg($icon-share) no-repeat left;
+  padding-left: 4%;
+}
+
 
 // Button styles
 .btn.svg-icon {
@@ -12,5 +21,6 @@
 
 // Wishlist button icon
 .btn-wishlist[data-wishlist="true"] {
-  //background-image: TODO
+  background: escape-svg($icon-heart-fill) no-repeat left;
+  padding-left: 4%;
 }

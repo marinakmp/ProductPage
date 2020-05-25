@@ -1,4 +1,14 @@
-// TODO collapse buttons plus-minus symbol
+// Collapse buttons plus-minus symbol
 // example https://www.codeply.com/go/Ep9T1ItZrb/bootstrap-4-collapse-card-plus-minus-icons
 // BUT do NOT use FontAwesome
 // check amp-what.com/
+// Another approach is to create shapes and add transitions
+// https://www.aventisshoes.gr/el/geox-blue-967546
+.accordion .card-header:after {
+  content: "-";
+  float: right;
+}
+.accordion .card-header.collapsed:after {
+  // symbol for "collapsed" panels
+  content: "+";
+}

@@ -2,3 +2,5 @@
 .idea/
 # NPM
 node_modules/
+# Dist
+dist/assets/

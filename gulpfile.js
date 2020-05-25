@@ -1,12 +1,12 @@
 // gulpfile.js
 const { src, dest, watch, series } = require('gulp');
 
-const sass = require("gulp-sass"),
-    autoprefixer = require("autoprefixer"),
-    sourcemaps = require("gulp-sourcemaps"),
-    cssmin = require('gulp-cssmin'),
-    rename = require('gulp-rename'),
-    browserSync = require("browser-sync").create();
+const sass = require("gulp-sass");
+const autoprefixer = require('gulp-autoprefixer');
+const sourcemaps = require("gulp-sourcemaps");
+const cssmin = require('gulp-cssmin');
+const rename = require('gulp-rename');
+const browserSync = require("browser-sync").create();
 
 const path = {
     src: "assets/",
@@ -26,7 +26,7 @@ function styles() {
 
 // CSS export: compact
 function cssbuild() {
-    return src(path.dist + '*.css')
+    return src(path.dist + '*.css') // TODO Exclude minified files
         .pipe(autoprefixer())
         .pipe(cssmin({keepBreaks: false}))
         .pipe(rename({suffix: '.min'}))
